@@ -1,0 +1,44 @@
+<template name="animation">
+	<canvas id="canvas" width="250" height="500"></canvas>
+	
+	<script src="paper.js" type="text/javascript" charset="utf-8"></script>
+	
+	<script type="text/paperscript" canvas="canvas" id="script">;
+		
+		var path = new Path({
+			closed: true
+		});
+		path.strokeColor = new Color(1, 0, 0);
+		var starter_point = new Point(125,200);
+		var starter = starter_point.clone();
+		
+		starter.angle = 0;
+		starter.length = Math.floor(Math.random()*100+50);
+		
+		var points = new Array();
+		var x = 0;
+		
+		for (x=0; x<30; x++) {
+			points[x] = starter_point + starter;
+			path.add(points[x]);
+			if (points[x].angle > 180){
+				starter.length = starter.length + Math.floor(Math.random()*150+50);
+				starter.angle = starter.angle + 10;
+			}
+			
+			else {
+				starter.length = Math.floor(Math.random()*100+0);
+				starter.angle = starter.angle + 10;
+			}
+		}
+		path.smooth();
+		
+		
+		function onFrame(event){
+			
+			for (x=0; x<30; x++) {
+				points[x] = points[x] - 1;
+			}
+		}
+	</script>
+</template>

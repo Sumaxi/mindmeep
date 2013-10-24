@@ -1,0 +1,132 @@
+<template name="account">
+	<div class="container">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-body">
+				<div class="col-md-7 col-md-offset-2">
+					<h1>Account Page</h1>
+					{{#if account}}
+						{{> account_page}}	
+					{{else}}
+						{{> sign_in}}
+						{{> sign_up}}
+					{{/if}}
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="sign_in">
+	<h4>Sign In!</h4>
+	<input type="text" class="form-control" placeholder="Username" name="username"><br>
+	<input type="password" class="form-control" placeholder="Password" name="pass"><br>
+	<br>
+	<label>
+		<input type="button" class="btn btn-default" name="submit_in" value="submit">
+	</label>
+	<br>
+</template>
+
+<template name="sign_up">
+	<hr>
+	<h4>Sign Up!</h4>
+	<input type="text" class="form-control" placeholder="Username" name="username_sign"><br>
+	<input type="password" class="form-control" placeholder="Password" name="pass_sign"><br>
+	<input type="password" class="form-control" placeholder="Password Confirm" name="pass_confirm"><br>
+	<input type="text" class="form-control" placeholder="Email" name="email"><br>
+	<br>
+	<label>
+		<input type="button" class="btn btn-default" name="submit_up" value="submit">
+	</label>
+</template>
+
+<template name="sign_out">
+	<br>
+	<h3>Sign Out</h3>
+	<input type="button" class="btn btn-default" name="submit_out" value="Sign Out">
+</template>
+
+<template name="account_page">
+	<h2>Welcome to your Profile</h2>
+	<br> 
+	<h3>Blog Poster</h3>
+	{{> blog}}
+	
+	{{> edit}}
+	
+	{{> sign_out}}
+</template>
+
+<template name="blog">
+	<hr>
+	<h4>Post a Article</h4>
+	<input type="text" class="form-control" placeholder=" Title" name="title_blog"><br>
+	<textarea class="form-control" rows="3" placeholder=" Enter your content here..." name="content_blog"></textarea>
+	<br>
+	<label>
+		<input type="button" class="btn btn-default" name="submit_article" value="Submit">
+	</label>
+</template>
+
+<template name="edit">
+	<hr> <br>
+	<h4>Edit your Articles</h4>
+	<a href="{{pathFor 'editor'}}"><button class="btn btn-default" name="edit_article">Edit</button></a>
+</template>
+
+<template name="editor">
+	<div class="container">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="col-md-7 col-md-offset-2">
+						<h2>Editor</h2>
+						<ul class="list-group">
+							{{#each Article}}
+							<li class="list-group-item">
+								<h3>{{title}}</h3>
+								<a href="{{pathFor 'editor_article'}}"><button class="btn btn-primary">Edit</button></a>
+								<span class="text-center"><button class="btn btn-danger" name="delete_article">Delete</button></span>
+							</li>
+							{{/each}}
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="editor_article">
+	<div class="container">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="col-md-7 col-md-offset-2">
+						<h2>Editor</h2>
+						<h4>Their Editor</h4>
+						{{> medium_editor}}
+						<h4>Edit your Article</h4>
+						<input type="text" class="form-control" name="title_blog" value="{{title}}"><br>
+						<textarea class="form-control" rows="3" placeholder=" Enter your content here..." name="content_blog">{{content}}</textarea>
+						<input type="button" class="btn btn-default" name="submit_article_edit" value="submit">
+						<br> <br>
+						<span class="text-center"><button class="btn btn-danger" name="delete_article">Delete</button></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</template>
+
+<template name="medium_editor">
+    <link rel="stylesheet" href="public/dist/css/medium-editor.css">
+	<script src="public/dist/js/medium-editor.js"></script>
+	<script>var editor = new MediumEditor('.editable');</script>
+	<div class="editable">
+		This this thing out
+	</div>
+</template>

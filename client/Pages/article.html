@@ -1,0 +1,54 @@
+<template name="article_item">
+	<div class="container">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h3 class="panel-title">{{title}} <small>by <a href="{{pathFor 'author'}}">{{author}}</a></small></h3>
+				</div>
+				
+				<div class="panel-body">
+					<p>{{content}}</p>
+				</div>
+			</div>
+			<br>
+			{{> commentator}}
+		</div>
+	</div>
+</template>
+
+<template name="comments">
+	<hr>
+	{{#each comment}}
+		<b>{{username}}</b>
+		<br>
+		{{content}}
+		<br>
+		<hr>
+	{{/each}}
+</template>
+
+<template name="comment">
+	<div class="panel panel-default">
+		<input type="text" class="form-control" placeholder="Anonymous" name="username"><br>
+		<textarea class="form-control" rows="3" placeholder=" Enter your comment here..." name="content"></textarea>
+		<br>
+		<label>
+			<input type="button" class="btn btn-default" name="submit_comment" value="submit">
+		</label>
+	</div>
+</template>
+
+<template name="commentator">
+	<div class="container">
+		<div class="col-md-8 col-md-offset-2">
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<div class="col-md-7 col-md-offset-2">
+						{{> comments}}
+						{{> comment}}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
