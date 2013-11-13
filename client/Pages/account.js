@@ -48,13 +48,13 @@ if (Meteor.isClient) {
 			
 			var title = $("input[name='title_blog']").val();
 			var content = $("textarea[name='content_blog']").val();
-			function pre(content) { return content.substring(1,200); };
+			function pre(content) { return content.substring(0,200); };
 			var pre_content=pre(content);
-			var author = Meteor.user().username;
+			var author = Meteor.user();
 			
 			console.log("Clicked to submit a blog article post. Title = "+title+" content "+content+" pre_content "+pre_content+" author "+author);
 			if (title && content) {
-				Article.insert({"title" : title, "content" : content, "pre_content" : pre_content, "author" : author});
+				Article.insert({"title" : title, "content" : content, "pre_content" : pre_content, "author" : author.username, "author_id" : author._id});
 			}
 		}
 	});

@@ -1,7 +1,10 @@
+Router.configure({
+	layoutTemplate: 'main'
+});
+
 Router.map(function () {
 	this.route('index',{
-		path:'/',
-		loadingTemplate:'loading'});
+		path:'/'});
 	
 	this.route('article',{path:'/article'});
 	
@@ -11,8 +14,7 @@ Router.map(function () {
 			var id = this.params._id;
 			Session.set("id",id);
 			return Article.findOne({_id: id});
-			},
-		loadingTemplate:'loading'
+			}
 	});
 	
 	this.route('editor_article',{
@@ -21,8 +23,7 @@ Router.map(function () {
 			var id = this.params._id;
 			Session.set("id",id);
 			return Article.findOne({_id: id});
-			},
-		loadingTemplate:'loading'
+			}
 	});
 	
 	this.route('editor',{

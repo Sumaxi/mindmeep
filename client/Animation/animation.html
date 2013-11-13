@@ -3,42 +3,106 @@
 	
 	<script src="paper.js" type="text/javascript" charset="utf-8"></script>
 	
-	<script type="text/paperscript" canvas="canvas" id="script">;
-		
-		var path = new Path({
-			closed: true
-		});
-		path.strokeColor = new Color(1, 0, 0);
-		var starter_point = new Point(125,200);
-		var starter = starter_point.clone();
-		
-		starter.angle = 0;
-		starter.length = Math.floor(Math.random()*100+50);
-		
-		var points = new Array();
+	<script type="text/paperscript" canvas="canvass" id="script">		
+		//***************** Configuration *****************
 		var x = 0;
+		var y = 100;
 		
-		for (x=0; x<30; x++) {
-			points[x] = starter_point + starter;
-			path.add(points[x]);
-			if (points[x].angle > 180){
-				starter.length = starter.length + Math.floor(Math.random()*150+50);
-				starter.angle = starter.angle + 10;
-			}
+		
+		//***************** Path *****************
+		var path = new Path({
+			closed: true,
+			selected: true
+		});
+		path.fillColor = new Color(0,1,0);
+		path.strokeColor = 'black' ;
+		path.strokeWidth = 2;
+		
+		//***************** Figure *****************
+		var point = new Point (150,200);
+		
+		//path.add(point)
+		var points = new Array();
+		
+		for (x=0; y>x; x++){
+			points[x] = new Point();
+			points[x].y = Math.floor(Math.random()*25+250);
 			
-			else {
-				starter.length = Math.floor(Math.random()*100+0);
-				starter.angle = starter.angle + 10;
+			points[x].x = 150;
+			path.add(points[x]);
+			path.rotate(360/y, point);
+		}
+		var z = 1;
+		//***************** Animation ****************
+		var down=true;
+		var side=0;
+		var segment;
+		function downEvent(mouse){
+			if (down){
+				if (mouse) { path.position = mouse;}
+				for (x=0; y>x; x++){
+					segment = path.segments[x];
+					if (segment.point.y < 500){
+						segment.point.y++;
+					}
+					else if (segment.point.y = 500) {
+						x=y;
+						down=false;
+					}
+				}
 			}
 		}
-		path.smooth();
+		var even = 0;
+		var evenpoint = new Array();
+		function animate(){
+			even++;
+			
+			for (x=0;y>x;x++){
+				var segment = path.segments[x];
+				var seg_x = segment.point.x;
+				var seg_y = segment.point.y;
+				evenpoint[x] = new Array();
+				evenpoint[x][even]=seg_x;
+				
+				if (segment.point.x > 250) {
+					side=side+1;
+				}
+				if (seg_x <= 0) {
+					side=side-1;
+				}
+				if (side > 0 && even<=100){
+					seg_x = seg_x + Math.floor(Math.random()*1)-1;
+				}
+				if (side <= 0 && even<=100){
+					seg_x = seg_x + Math.floor(Math.random()*2)+1;
+				}
+				
+				if (even > 100) {
+					seg_x = evenpoint[x][even-1];
+					console.log("activated"+seg_x);
+					even = even-2;
+					if (even > 120){
+						even=0;
+					}
+				}
+				
+				seg_y = seg_y + Math.floor(Math.random()*2)-1;		
+				
+				segment.point.x = seg_x;
+				segment.point.y = seg_y;
+			}
+		}
 		
 		
 		function onFrame(event){
-			
-			for (x=0; x<30; x++) {
-				points[x] = points[x] - 1;
-			}
+			downEvent();
+			animate();
 		}
+		
+		//function onMouseDown(event){
+		//	var mouse_point = event.point;
+		//	down=true;
+		//	downEvent(mouse_point);
+		//}
 	</script>
 </template>

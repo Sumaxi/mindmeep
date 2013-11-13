@@ -1,74 +1,288 @@
-/* CSS declarations go here */
-.thin {
-  border: 1px solid ##888888;
-  }
+/* Standard CSS created by Maxim Podolski */
+/* ******************** Input ******************** */
+input, textarea, button {
+	font-family: inherit;
+}
+
+form {
+	border: 0px;
+}
+
+input {
+	border: 1px solid #CFCFCF;
+	background: white;
+	position: center;
+	text-align: center;
+	width: 100%;
+	height: 40px;
+	margin-bottom:20px;
+}
+
+textarea {
+	border: 1px solid #CFCFCF;
+	width: 100%;
+	height: 150px;
+	position: center;
+	margin-bottom:20px;
+}
+
+button, .button {
+	display: inline-block;
+	background-color:#f9f9f9;
+	padding: 6px 12px;
+	border:1px solid #CFCFCF;
+	border-radius:5px;
+	font-style:normal;
+	text-decoration: none;
+	opacity:0.9;
+	-webkit-transition: opacity 593ms ease, all 500ms ease;
+	-o-transition: opacity 593ms ease, all 500ms ease;
+	transition: opacity 593ms ease, all 500ms ease;
+}
+
+button:hover, .button:hover {
+	background-color:#q1q1q1;
+	opacity: 1;
+}
+
+button:active, .button:active {
+	background-color:#E6E6E6;
+}
+
+#read {
+	color: #ffffff;
+	background-color: #428bca;
+	border-color: #357ebd;
+	margin-left: 40%;
+}
+
+#read:hover {
+	color: #ffffff;
+	background-color: #3276b1;
+	border-color: #285e8e;
+	margin-left: 40%;
+}
+
+/* ******************** Content ******************** */
+div .panel{
+	margin-bottom: 50px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+
+div {
+	overflow:hidden;
+}
+
+a {
+	font-style:normal;
+	text-decoration:none;
+	color: #428bca;
+}
+
+small {
+	color: #999;
+}
 
 p {
-white-space: pre;
-white-space: pre-wrap;
-white-space: pre-line;
-white-space: -pre-wrap;
-white-space: -o-pre-wrap;
-white-space: -moz-pre-wrap;
+	font-size: 16px;
+	white-space: pre;
+	white-space: pre-wrap;
+	white-space: pre-line;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	white-space: -moz-pre-wrap;
 }
 
-.loader {
-    text-align: center;    
-}
-.loader span {
-    display: inline-block;
-    vertical-align: middle;
-    width: 20px;
-    height: 10px;
-    margin: 90px auto;
-    background: black;
-    border-radius: 50px;
-    -webkit-animation: loader 0.9s infinite alternate;
-    -moz-animation: loader 0.9s infinite alternate;
-}
-.loader span:nth-of-type(2) {
-    -webkit-animation-delay: 0.3s;
-    -moz-animation-delay: 0.3s;
-}
-.loader span:nth-of-type(3) {
-    -webkit-animation-delay: 0.6s;
-    -moz-animation-delay: 0.6s;
-}
-@-webkit-keyframes loader {
-  0% {
-    width: 20px;
-    height: 10px;
-    opacity: 0.9;
-    -webkit-transform: translateY();
-  }
-  100% {
-    width: 34px;
-    height: 24px;
-    opacity: 0.1;
-    -webkit-transform: translateY(-21px);
-  }
-}
-@-moz-keyframes loader {
-  0% {
-    width: 10px;
-    height: 10px;
-    opacity: 0.9;
-    -moz-transform: translateY();
-  }
-  100% {
-    width: 24px;
-    height: 24px;
-    opacity: 0.1;
-    -moz-transform: translateY(-21px);
-  }
+hr {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border: 0;
+	border-top: 1px solid #eee;
 }
 
-span {
-	font-size:40px;
+.main {
+	background-color:white;
+	padding:10px;
+	border-left: 20px solid #ADD6FF;
+	border-right: 20px solid #ADD6FF;
+	border-top: 20px solid #ADD6FF;
 }
 
-.sidebar {
-	position: absolute; 
-	top: 50px; 
-	left: 0px;
+
+.panel {
+	border: 1px solid #CFCFCF;
+	background-color: #FDFDFD;
+	padding: 1px;
+}
+
+.center.small, .center_text.small {
+	margin:auto;
+	width:40%;
+}
+
+#small {
+	width: 40%;
+}
+
+#medium {
+	width: 60%;
+}
+
+#big {
+	width: 80%;
+}
+
+.center {
+	margin:auto;
+	width:80%;
+}
+
+.center_text {
+	text-align: center;
+	margin:auto;
+	width:80%;
+}
+
+.left {
+	width: 50%;
+	float:left;
+}
+
+.right {
+	width:50%;
+	float:right;
+}
+
+/* ******************** Typography ******************** */
+h1, h2, h3, h4, h5, h6 {
+	font-family: Ubuntu, sans-serif, sans;
+	line-height: 150%;
+	text-align: center;
+	color: #303030;
+}
+
+h1 {
+	line-height: 200%;
+	font-size: 36px;
+	font-weight: 700;
+}
+
+h2 {
+	font-size:30px;
+	font-weight: 500;
+}
+
+h3 {
+	font-size: 25px;
+	font-weight: normal;
+}
+
+h4 {
+	font-size: 20px;
+	font-weight:150;
+}
+
+h5 {
+	font-size: 18px;
+	font-weight:100;
+	font-style: italic;
+}
+
+p, div, span {
+	font-size: 16px;
+	line-height:1.5;
+	font-family: Ubuntu;
+	color: #181818;
+}
+
+.text_small {
+	font-size: 16px;
+}
+
+.text_medium {
+	font-size: 18px;
+}
+
+.text_large {
+	font-size: 20px;
+	text-align: center;
+}
+/* ******************** Default Settings ******************** */
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+          font-size: 16px;
+          font-family: Ubuntu;
+}
+
+/* ******************** Background ******************** */
+html {
+	background-color:#99CCFF;
+	width:90%;
+	margin:auto;
+}
+
+/* ******************** Patterns ******************** */
+.lines {
+background-color: #0ae;
+background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
+background-image: -moz-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+background-image: -o-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+background-image: linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+}
+
+/* ******************** Navigation ******************** */
+nav {
+	position: relative;
+	height: 90px;
+	margin-top: 20px;
+	margin-bottom: 40px;
+	padding: 0;
+	border-bottom: 1px solid #CFCFCF;
+	cursor:pointer;
+}
+
+nav li {
+	float:left;
+	margin-left:15px;
+	padding: 10px;
+	list-style: none;
+	display: inline-table;
+}
+nav a {
+	display:block;
+	padding: 5px 12px;
+	text-decoration: none;
+	font-size: 18px;
+	color: #428bca;
+	line-height: 100%;
+}
+nav a:hover {
+	color: #2a6496;
+	background-color: #E0E0E0;
+	border-bottom: 1px solid #CFCFCF;
+}
+nav .main {
+	padding: 5px 18px;
+	font-size:20px;
+	color: #303030;
+	border-top-left-radius:5px;
+	border-top-right-radius:5px;
+	border-top:1px solid #CFCFCF;
+	border-left:1px solid #CFCFCF;
+	border-right:1px solid #CFCFCF;
+}
+
+nav ul ul {
+	display: none;
+}
+
+nav ul li:hover > ul {
+	display: block;
+}
+
+nav ul li:hover > nav {
+	height: 400px;
 }
